@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-profile-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-profile
+  template:
+    metadata:
+      labels:
+        app: nginx-profile
+    spec:
+      containers:
+        - name: nginx-profile
+          image: pavanipp/my-nginx-profile:1.0 
+          ports:
+            - containerPort: 80
